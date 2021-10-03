@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conversor-peso
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-peso
+  template:
+    metadata:
+      labels:
+        app: web-peso
+    spec:
+      containers:
+      - name: web-peso
+        image: eduardocortez3/conversao-peso:v1
+        ports:
+          - containerPort: 80
